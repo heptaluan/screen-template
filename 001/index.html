@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
 
     <script type="text/javascript" src="js/rem.js"></script>
     <link rel="stylesheet" href="css/style.css" />
@@ -38,9 +35,7 @@
           <div class="title-box">
             <h6>广东省寄派件数据</h6>
             <img class="line-img" src="images/line-blue.png" alt="" />
-            <button id="filBtn">
-              <img src="images/select_icon.png" alt="" />筛选
-            </button>
+            <button id="filBtn"><img src="images/select_icon.png" alt="" />筛选</button>
           </div>
           <div class="chart-box">
             <div class="filter-con" id="filCon" data-type="1">
@@ -84,11 +79,7 @@
               <p id="date"></p>
             </div>
             <div class="weather">
-              <img
-                id="weatherImg"
-                src="images/weather/weather_img01.png"
-                alt=""
-              />
+              <img id="weatherImg" src="images/weather/weather_img01.png" alt="" />
               <div id="weather">
                 <p class="active">多云</p>
                 <p>16-22℃</p>
@@ -185,9 +176,7 @@
           <div class="title-box">
             <h6 id="barTitle">派件数据</h6>
             <img class="line-img" src="images/line-blue.png" alt="" />
-            <button data-state="1" id="tabBtn">
-              <img src="images/chart_icon.png" alt="" /><span>图表</span>
-            </button>
+            <button data-state="1" id="tabBtn"><img src="images/chart_icon.png" alt="" /><span>图表</span></button>
           </div>
           <p class="unit">单位：件</p>
           <div class="chart-box">
@@ -263,15 +252,10 @@
           <div class="title-box">
             <p id="switchBtn">
               <span class="active" data-dataType="income">收入数据</span
-              ><img class="line-img" src="images/line-blue.png" alt="" /><span
-                data-dataType="expend"
-                >支出数据</span
-              >
+              ><img class="line-img" src="images/line-blue.png" alt="" /><span data-dataType="expend">支出数据</span>
             </p>
             <img class="line-img" src="images/line-blue.png" alt="" />
-            <button id="dateBtn">
-              <img src="images/data_icon.png" alt="" />日期
-            </button>
+            <button id="dateBtn"><img src="images/data_icon.png" alt="" />日期</button>
           </div>
           <div class="data-box">
             <p class="data-number" id="totalProfit">123,456.5元</p>
@@ -289,23 +273,14 @@
         </div>
         <div class="right-bottom">
           <div class="title-box">
-            <button id="setBtn">
-              <img src="images/settings_icon.png" alt="" />设置
-            </button>
+            <button id="setBtn"><img src="images/settings_icon.png" alt="" />设置</button>
           </div>
           <div class="data-box">
             <div class="settings-box">
               <p>
-                <img src="images/teacher_icon.png" alt="" />今日值班：<span
-                  id="name_a"
-                ></span
-                ><span id="date_a"></span>
+                <img src="images/teacher_icon.png" alt="" />今日值班：<span id="name_a"></span><span id="date_a"></span>
               </p>
-              <p>
-                <img src="images/people_iocn.png" alt="" />负责人：<span
-                  id="lea_a"
-                ></span>
-              </p>
+              <p><img src="images/people_iocn.png" alt="" />负责人：<span id="lea_a"></span></p>
             </div>
           </div>
         </div>
@@ -473,18 +448,11 @@
         </div>
         <div class="cont-div">
           <h2 class="title" id="titles"></h2>
-          <button class="btn-class" id="dateBtns">
-            <img src="images/data_icon.png" alt="" />日期
-          </button>
+          <button class="btn-class" id="dateBtns"><img src="images/data_icon.png" alt="" />日期</button>
           <div class="data-box pop-time">
             <div class="time-box" id="timeBoxs">
               <div class="time-div">
-                <input
-                  class="time-input"
-                  type="text"
-                  value=""
-                  id="startTimes"
-                />
+                <input class="time-input" type="text" value="" id="startTimes" />
                 <img src="images/selsct_time.png" alt="" />
               </div>
               <div class="time-div end">
@@ -544,9 +512,7 @@
             <input type="text" value="" />
             <button class="plus" id="addL"></button>
             <button class="mineus" id="mineusL" style="display: none"></button>
-            <button class="add-btn" id="addSet">
-              <img src="images/plus.png" alt="" />添加
-            </button>
+            <button class="add-btn" id="addSet"><img src="images/plus.png" alt="" />添加</button>
           </div>
           <table class="table3">
             <thead>
@@ -645,94 +611,84 @@
   <script type="text/javascript" src="js/data/guangdong.js"></script>
   <script type="text/javascript" src="js/base.js"></script>
   <script type="text/javascript">
-    $("document").ready(function () {
-      $("body").css("visibility", "visible");
-      var localData = [
-        $("#teacher").val(),
-        $("#start").val() + "/" + $("#end").val(),
-        $("#leader").val(),
-      ];
-      localStorage.setItem("data", localData);
-      $("#conBtn").on("click", function () {
-        localData = [
-          $("#teacher").val(),
-          $("#start").val() + "/" + $("#end").val(),
-          $("#leader").val(),
-        ];
-        if (typeof Storage !== "undefined") {
-          localStorage.setItem("data", localData);
-          var arr = localStorage.getItem("data").split(",");
-          $("#name_a").html(arr[0]);
-          $("#date_a").html(arr[1]);
-          $("#lea_a").html(arr[2]);
+    $('document').ready(function () {
+      $('body').css('visibility', 'visible')
+      var localData = [$('#teacher').val(), $('#start').val() + '/' + $('#end').val(), $('#leader').val()]
+      localStorage.setItem('data', localData)
+      $('#conBtn').on('click', function () {
+        localData = [$('#teacher').val(), $('#start').val() + '/' + $('#end').val(), $('#leader').val()]
+        if (typeof Storage !== 'undefined') {
+          localStorage.setItem('data', localData)
+          var arr = localStorage.getItem('data').split(',')
+          $('#name_a').html(arr[0])
+          $('#date_a').html(arr[1])
+          $('#lea_a').html(arr[2])
         }
-      });
-      $("#fangda").on("click", function () {
-        if ($(this).siblings("ul").is(":hidden")) {
-          $(this).addClass("active").siblings("ul").show();
+      })
+      $('#fangda').on('click', function () {
+        if ($(this).siblings('ul').is(':hidden')) {
+          $(this).addClass('active').siblings('ul').show()
         } else {
-          $(this).removeClass("active").siblings("ul").hide();
+          $(this).removeClass('active').siblings('ul').hide()
         }
-      });
+      })
 
-      $(".modal-btn>li").on("click", function () {
-        var index = $(this).index();
+      $('.modal-btn>li').on('click', function () {
+        var index = $(this).index()
         if (index <= 2) {
-          $(".container")
-            .attr("style", "visibility: visible")
-            .find(".pop-up")
+          $('.container')
+            .attr('style', 'visibility: visible')
+            .find('.pop-up')
             .eq(index)
-            .attr("style", "visibility: visible")
+            .attr('style', 'visibility: visible')
             .siblings()
-            .attr("style", "visibility: hidden");
+            .attr('style', 'visibility: hidden')
         } else if (index > 2 && index < 5) {
-          $(".container")
-            .attr("style", "visibility: visible")
-            .find(".pop-up")
+          $('.container')
+            .attr('style', 'visibility: visible')
+            .find('.pop-up')
             .eq(3)
-            .attr("style", "visibility: visible")
+            .attr('style', 'visibility: visible')
             .siblings()
-            .attr("style", "visibility: hidden");
+            .attr('style', 'visibility: hidden')
           if (index != 3) {
-            $(".pop-data .ranking-box").hide();
+            $('.pop-data .ranking-box').hide()
           } else {
-            $(".pop-data .ranking-box").show();
+            $('.pop-data .ranking-box').show()
           }
-          $(".cont-div")
+          $('.cont-div')
             .eq(index - 3)
-            .attr("style", "visibility: visible")
-            .siblings(".cont-div")
-            .attr("style", "visibility: hidden");
+            .attr('style', 'visibility: visible')
+            .siblings('.cont-div')
+            .attr('style', 'visibility: hidden')
         } else if (index == 5) {
-          $(".container")
-            .attr("style", "visibility: visible")
-            .find(".pop-up")
+          $('.container')
+            .attr('style', 'visibility: visible')
+            .find('.pop-up')
             .eq(3)
-            .attr("style", "visibility: visible")
+            .attr('style', 'visibility: visible')
             .siblings()
-            .attr("style", "visibility: hidden");
-          $(".pop-data .ranking-box").hide();
-          if ($("#switchBtn").find(".active").data("datatype") == "income") {
-            $("#titles").html("收入数据");
-            $("#totalProfits").html("123,456.5元");
-            $(".cont-div")
+            .attr('style', 'visibility: hidden')
+          $('.pop-data .ranking-box').hide()
+          if ($('#switchBtn').find('.active').data('datatype') == 'income') {
+            $('#titles').html('收入数据')
+            $('#totalProfits').html('123,456.5元')
+            $('.cont-div')
               .eq(2)
-              .attr("style", "visibility: visible")
-              .siblings(".cont-div")
-              .attr("style", "visibility: hidden");
-          } else if (
-            $("#switchBtn").find(".active").data("datatype") == "expend"
-          ) {
-            $("#titles").html("支出数据");
-            $("#totalProfits").html("32,111.4元");
-            $(".cont-div")
+              .attr('style', 'visibility: visible')
+              .siblings('.cont-div')
+              .attr('style', 'visibility: hidden')
+          } else if ($('#switchBtn').find('.active').data('datatype') == 'expend') {
+            $('#titles').html('支出数据')
+            $('#totalProfits').html('32,111.4元')
+            $('.cont-div')
               .eq(2)
-              .attr("style", "visibility: visible")
-              .siblings("div")
-              .attr("style", "visibility: hidden");
+              .attr('style', 'visibility: visible')
+              .siblings('div')
+              .attr('style', 'visibility: hidden')
           }
         }
-      });
-    });
+      })
+    })
   </script>
 </html>

@@ -1,34 +1,24 @@
 function fnW(str) {
-  var num;
-  str >= 10 ? (num = str) : (num = "0" + str);
-  return num;
+  var num
+  str >= 10 ? (num = str) : (num = '0' + str)
+  return num
 }
 //获取当前时间
 var timer = setInterval(function () {
-  var date = new Date();
-  var year = date.getFullYear(); //当前年份
-  var month = date.getMonth(); //当前月份
-  var data = date.getDate(); //天
-  var hours = date.getHours(); //小时
-  var minute = date.getMinutes(); //分
-  var second = date.getSeconds(); //秒
-  var day = date.getDay(); //获取当前星期几
-  var ampm = hours < 12 ? "am" : "pm";
-  $("#time").html(fnW(hours) + ":" + fnW(minute) + ":" + fnW(second));
-  $("#date").html(
-    "<span>" +
-      year +
-      "/" +
-      (month + 1) +
-      "/" +
-      data +
-      "</span><span>" +
-      ampm +
-      "</span><span>周" +
-      day +
-      "</span>"
-  );
-}, 1000);
+  var date = new Date()
+  var year = date.getFullYear() //当前年份
+  var month = date.getMonth() //当前月份
+  var data = date.getDate() //天
+  var hours = date.getHours() //小时
+  var minute = date.getMinutes() //分
+  var second = date.getSeconds() //秒
+  var day = date.getDay() //获取当前星期几
+  var ampm = hours < 12 ? 'am' : 'pm'
+  $('#time').html(fnW(hours) + ':' + fnW(minute) + ':' + fnW(second))
+  $('#date').html(
+    '<span>' + year + '/' + (month + 1) + '/' + data + '</span><span>' + ampm + '</span><span>周' + day + '</span>'
+  )
+}, 1000)
 
 //页面地图数据
 var geoCoordMap = {
@@ -258,103 +248,103 @@ var geoCoordMap = {
   澳门特别行政区: [115.07, 21.33],
   台湾省: [121.21, 23.53],
   香港特别行政区: [114.1, 22.2],
-};
+}
 
-$(".select").on("blur", function () {
-  $(this).find(".select-ul").hide();
-});
+$('.select').on('blur', function () {
+  $(this).find('.select-ul').hide()
+})
 //下拉框点击出现下拉框内容
-$(".select-div").on("click", function () {
-  if ($(this).siblings(".select-ul").is(":hidden")) {
-    $(this).siblings(".select-ul").show();
+$('.select-div').on('click', function () {
+  if ($(this).siblings('.select-ul').is(':hidden')) {
+    $(this).siblings('.select-ul').show()
   } else {
-    $(this).siblings(".select-ul").hide();
+    $(this).siblings('.select-ul').hide()
   }
-});
+})
 
-$(".select-ul").on("click", "li", function () {
+$('.select-ul').on('click', 'li', function () {
   $(this)
-    .addClass("active")
-    .siblings("li")
-    .removeClass("active")
+    .addClass('active')
+    .siblings('li')
+    .removeClass('active')
     .parent()
     .hide()
-    .siblings(".select-div")
-    .html($(this).html());
-  var parentDiv = $(this).parent().parent().parent();
-});
+    .siblings('.select-div')
+    .html($(this).html())
+  var parentDiv = $(this).parent().parent().parent()
+})
 
 //鼠标滑动到按钮，按钮内容变成白色
-var imgName;
-$(".title-box")
-  .children("button")
+var imgName
+$('.title-box')
+  .children('button')
   .hover(
     function () {
-      imgName = $(this).children("img").attr("src").split(".png")[0];
+      imgName = $(this).children('img').attr('src').split('.png')[0]
       $(this)
-        .children("img")
-        .attr("src", imgName + "_on.png");
+        .children('img')
+        .attr('src', imgName + '_on.png')
     },
     function () {
       $(this)
-        .children("img")
-        .attr("src", imgName + ".png");
+        .children('img')
+        .attr('src', imgName + '.png')
     }
-  );
+  )
 
 var startColor = [
-  "#0e94eb",
-  "#c440ef",
-  "#efb013",
-  "#2fda07",
-  "#d8ef13",
-  "#2e4af8",
-  "#0eebc4",
-  "#f129b1",
-  "#17defc",
-  "#f86363",
-];
+  '#0e94eb',
+  '#c440ef',
+  '#efb013',
+  '#2fda07',
+  '#d8ef13',
+  '#2e4af8',
+  '#0eebc4',
+  '#f129b1',
+  '#17defc',
+  '#f86363',
+]
 var borderStartColor = [
-  "#0077c5",
-  "#a819d7",
-  "#c99002",
-  "#24bc00",
-  "#b6cb04",
-  "#112ee2",
-  "#00bd9c",
-  "#ce078f",
-  "#00b2cd",
-  "#ec3c3c",
-];
+  '#0077c5',
+  '#a819d7',
+  '#c99002',
+  '#24bc00',
+  '#b6cb04',
+  '#112ee2',
+  '#00bd9c',
+  '#ce078f',
+  '#00b2cd',
+  '#ec3c3c',
+]
 
 //入库量占比，带边框效果的饼图
 function chart1() {
   //data 为模拟数据
   var data = [
     {
-      name: "顺丰",
+      name: '顺丰',
       value: 192581,
-      percent: "30.8721",
+      percent: '30.8721',
     },
     {
-      name: "京东",
+      name: '京东',
       value: 215635,
-      percent: "34.076",
+      percent: '34.076',
     },
     {
-      name: "EMS",
+      name: 'EMS',
       value: 224585,
-      percent: "35.49",
+      percent: '35.49',
     },
-  ];
-  var myChart = echarts.init(document.getElementById("pie"));
-  var myChart1 = echarts.init(document.getElementById("pie1"));
-  window.addEventListener("resize", function () {
-    myChart.resize();
-    myChart1.resize();
-  });
+  ]
+  var myChart = echarts.init(document.getElementById('pie'))
+  var myChart1 = echarts.init(document.getElementById('pie1'))
+  window.addEventListener('resize', function () {
+    myChart.resize()
+    myChart1.resize()
+  })
 
-  var str = "";
+  var str = ''
   for (var i = 0; i < data.length; i++) {
     str +=
       '<p><span><i class="legend" style="background:' +
@@ -365,43 +355,43 @@ function chart1() {
       startColor[i] +
       '">' +
       data[i].value +
-      "</span>" +
+      '</span>' +
       Number(data[i].percent).toFixed(2) +
-      "%</p>";
+      '%</p>'
   }
 
-  $(".pie-data").append(str);
+  $('.pie-data').append(str)
 
   function deepCopy(obj) {
-    if (typeof obj !== "object") {
-      return obj;
+    if (typeof obj !== 'object') {
+      return obj
     }
-    var newobj = {};
+    var newobj = {}
     for (var attr in obj) {
-      newobj[attr] = obj[attr];
+      newobj[attr] = obj[attr]
     }
-    return newobj;
+    return newobj
   }
   var xData = [],
-    yData = [];
+    yData = []
   data.map((a, b) => {
-    xData.push(a.name);
-    yData.push(a.value);
-  });
+    xData.push(a.name)
+    yData.push(a.value)
+  })
 
-  var RealData = [];
-  var borderData = [];
+  var RealData = []
+  var borderData = []
   data.map((item, index) => {
-    var newobj = deepCopy(item);
-    var newobj1 = deepCopy(item);
-    RealData.push(newobj);
-    borderData.push(newobj1);
-  });
+    var newobj = deepCopy(item)
+    var newobj1 = deepCopy(item)
+    RealData.push(newobj)
+    borderData.push(newobj1)
+  })
   RealData.map((item, index) => {
     item.itemStyle = {
       normal: {
         color: {
-          type: "linear",
+          type: 'linear',
           x: 0,
           y: 0,
           x2: 0,
@@ -419,13 +409,13 @@ function chart1() {
           globalCoord: false, // 缺省为 false
         },
       },
-    };
-  });
+    }
+  })
   borderData.map((item, index) => {
     item.itemStyle = {
       normal: {
         color: {
-          type: "linear",
+          type: 'linear',
           x: 0,
           y: 0,
           x2: 0,
@@ -443,21 +433,21 @@ function chart1() {
           globalCoord: false, // 缺省为 false
         },
       },
-    };
-  });
+    }
+  })
   var option = {
     tooltip: {
-      trigger: "item",
+      trigger: 'item',
       //            position: ['30%', '50%'],
       confine: true,
-      formatter: "{a} <br/>{b}: {c} ({d}%)",
+      formatter: '{a} <br/>{b}: {c} ({d}%)',
     },
     series: [
       // 主要展示层的
       {
-        radius: ["50%", "85%"],
-        center: ["50%", "50%"],
-        type: "pie",
+        radius: ['50%', '85%'],
+        center: ['50%', '50%'],
+        type: 'pie',
         label: {
           normal: {
             show: false,
@@ -474,14 +464,14 @@ function chart1() {
             show: false,
           },
         },
-        name: "派件入库量占比内容",
+        name: '派件入库量占比内容',
         data: RealData,
       },
       // 边框的设置
       {
-        radius: ["45%", "50%"],
-        center: ["50%", "50%"],
-        type: "pie",
+        radius: ['45%', '50%'],
+        center: ['50%', '50%'],
+        type: 'pie',
         label: {
           normal: {
             show: false,
@@ -505,129 +495,129 @@ function chart1() {
         data: borderData,
       },
     ],
-  };
+  }
 
-  myChart.setOption(option);
-  myChart1.setOption(option);
+  myChart.setOption(option)
+  myChart1.setOption(option)
 }
 
-chart1();
+chart1()
 
 //----------------------派件入库量占比内容end---------------
 
 //------------广东省寄派件数据内容---------------
 //点击筛选按钮
-$("#filBtn").on("click", function () {
-  if ($("#filCon").is(":hidden")) {
-    $("#filCon").attr("style", "display:flex");
+$('#filBtn').on('click', function () {
+  if ($('#filCon').is(':hidden')) {
+    $('#filCon').attr('style', 'display:flex')
   } else {
-    $("#filCon").hide();
+    $('#filCon').hide()
   }
-});
+})
 //点击筛选按钮end
 
 function chart2(chartType) {
   var data = [
     {
-      name: "广州市",
+      name: '广州市',
       value: 120057.34,
     },
     {
-      name: "韶关市",
+      name: '韶关市',
       value: 15477.48,
     },
     {
-      name: "深圳市",
+      name: '深圳市',
       value: 131686.1,
     },
     {
-      name: "珠海市",
+      name: '珠海市',
       value: 6992.6,
     },
     {
-      name: "汕头市",
+      name: '汕头市',
       value: 44045.49,
     },
     {
-      name: "佛山市",
+      name: '佛山市',
       value: 40689.64,
     },
     {
-      name: "江门市",
+      name: '江门市',
       value: 37659.78,
     },
     {
-      name: "湛江市",
+      name: '湛江市',
       value: 45180.97,
     },
     {
-      name: "茂名市",
+      name: '茂名市',
       value: 5204.26,
     },
     {
-      name: "肇庆市",
+      name: '肇庆市',
       value: 21900.9,
     },
     {
-      name: "惠州市",
+      name: '惠州市',
       value: 4918.26,
     },
     {
-      name: "梅州市",
+      name: '梅州市',
       value: 5881.84,
     },
     {
-      name: "汕尾市",
+      name: '汕尾市',
       value: 4178.01,
     },
     {
-      name: "河源市",
+      name: '河源市',
       value: 2227.92,
     },
     {
-      name: "阳江市",
+      name: '阳江市',
       value: 2180.98,
     },
     {
-      name: "清远市",
+      name: '清远市',
       value: 9172.94,
     },
     {
-      name: "东莞市",
+      name: '东莞市',
       value: 3368,
     },
     {
-      name: "中山市",
+      name: '中山市',
       value: 306.98,
     },
     {
-      name: "潮州市",
+      name: '潮州市',
       value: 810.66,
     },
     {
-      name: "揭阳市",
+      name: '揭阳市',
       value: 542.2,
     },
     {
-      name: "云浮市",
+      name: '云浮市',
       value: 256.38,
     },
-  ];
+  ]
 
-  var myChart = echarts.init(document.getElementById("gdMap"));
-  var myCharts = echarts.init(document.getElementById("gdMaps"));
-  window.addEventListener("resize", function () {
-    myChart.resize();
-    myCharts.resize();
-  });
-  var yMax = 0;
+  var myChart = echarts.init(document.getElementById('gdMap'))
+  var myCharts = echarts.init(document.getElementById('gdMaps'))
+  window.addEventListener('resize', function () {
+    myChart.resize()
+    myCharts.resize()
+  })
+  var yMax = 0
   for (var j = 0; j < data.length; j++) {
     if (yMax < data[j].value) {
-      yMax = data[j].value;
+      yMax = data[j].value
     }
   }
-  myChart.hideLoading();
-  myCharts.hideLoading();
+  myChart.hideLoading()
+  myCharts.hideLoading()
   var option = {
     animation: true,
     tooltip: {
@@ -636,33 +626,33 @@ function chart2(chartType) {
     visualMap: {
       min: 0,
       max: yMax,
-      text: ["高", "低"],
-      orient: "horizontal",
+      text: ['高', '低'],
+      orient: 'horizontal',
       itemWidth: 15,
       itemHeight: 200,
       right: 0,
       bottom: 30,
       inRange: {
-        color: ["#75ddff", "#0e94eb"],
+        color: ['#75ddff', '#0e94eb'],
       },
       textStyle: {
-        color: "white",
+        color: 'white',
       },
     },
     series: [
       {
-        name: "数据名称",
-        type: "map",
-        mapType: "广东",
-        selectedMode: "multiple",
+        name: '数据名称',
+        type: 'map',
+        mapType: '广东',
+        selectedMode: 'multiple',
         tooltip: {
-          trigger: "item",
-          formatter: "{b}<br/>{c} (件)",
+          trigger: 'item',
+          formatter: '{b}<br/>{c} (件)',
         },
         itemStyle: {
           normal: {
             borderWidth: 1,
-            borderColor: "#0e94eb",
+            borderColor: '#0e94eb',
             label: {
               show: false,
             },
@@ -670,12 +660,12 @@ function chart2(chartType) {
           emphasis: {
             // 也是选中样式
             borderWidth: 1,
-            borderColor: "#fff",
-            backgroundColor: "red",
+            borderColor: '#fff',
+            backgroundColor: 'red',
             label: {
               show: true,
               textStyle: {
-                color: "#fff",
+                color: '#fff',
               },
             },
           },
@@ -683,12 +673,12 @@ function chart2(chartType) {
         data: data,
       },
     ],
-  };
+  }
 
-  myChart.setOption(option);
-  myCharts.setOption(option);
+  myChart.setOption(option)
+  myCharts.setOption(option)
 }
-chart2("");
+chart2('')
 
 //------------广东省寄派件数据内容end---------------
 
@@ -696,469 +686,469 @@ chart2("");
 var cityName = [
   {
     ProID: 1,
-    name: "北京",
+    name: '北京',
     ProSort: 1,
-    firstP: "B",
-    ProRemark: "直辖市",
+    firstP: 'B',
+    ProRemark: '直辖市',
   },
   {
     ProID: 2,
-    name: "天津",
+    name: '天津',
     ProSort: 2,
-    firstP: "T",
-    ProRemark: "直辖市",
+    firstP: 'T',
+    ProRemark: '直辖市',
   },
   {
     ProID: 3,
-    name: "河北",
+    name: '河北',
     ProSort: 5,
-    firstP: "H",
-    ProRemark: "省份",
+    firstP: 'H',
+    ProRemark: '省份',
   },
   {
     ProID: 4,
-    name: "山西",
+    name: '山西',
     ProSort: 6,
-    firstP: "S",
-    ProRemark: "省份",
+    firstP: 'S',
+    ProRemark: '省份',
   },
   {
     ProID: 5,
-    name: "内蒙古",
+    name: '内蒙古',
     ProSort: 32,
-    firstP: "N",
-    ProRemark: "自治区",
+    firstP: 'N',
+    ProRemark: '自治区',
   },
   {
     ProID: 6,
-    name: "辽宁",
+    name: '辽宁',
     ProSort: 8,
-    firstP: "L",
-    ProRemark: "省份",
+    firstP: 'L',
+    ProRemark: '省份',
   },
   {
     ProID: 7,
-    name: "吉林",
+    name: '吉林',
     ProSort: 9,
-    firstP: "J",
-    ProRemark: "省份",
+    firstP: 'J',
+    ProRemark: '省份',
   },
   {
     ProID: 8,
-    name: "黑龙江",
+    name: '黑龙江',
     ProSort: 10,
-    firstP: "H",
-    ProRemark: "省份",
+    firstP: 'H',
+    ProRemark: '省份',
   },
   {
     ProID: 9,
-    name: "上海",
+    name: '上海',
     ProSort: 3,
-    firstP: "S",
-    ProRemark: "直辖市",
+    firstP: 'S',
+    ProRemark: '直辖市',
   },
   {
     ProID: 10,
-    name: "江苏",
+    name: '江苏',
     ProSort: 11,
-    firstP: "J",
-    ProRemark: "省份",
+    firstP: 'J',
+    ProRemark: '省份',
   },
   {
     ProID: 11,
-    name: "浙江",
+    name: '浙江',
     ProSort: 12,
-    firstP: "Z",
-    ProRemark: "省份",
+    firstP: 'Z',
+    ProRemark: '省份',
   },
   {
     ProID: 12,
-    name: "安徽",
+    name: '安徽',
     ProSort: 13,
-    firstP: "A",
-    ProRemark: "省份",
+    firstP: 'A',
+    ProRemark: '省份',
   },
   {
     ProID: 13,
-    name: "福建",
+    name: '福建',
     ProSort: 14,
-    firstP: "F",
-    ProRemark: "省份",
+    firstP: 'F',
+    ProRemark: '省份',
   },
   {
     ProID: 14,
-    name: "江西",
+    name: '江西',
     ProSort: 15,
-    firstP: "J",
-    ProRemark: "省份",
+    firstP: 'J',
+    ProRemark: '省份',
   },
   {
     ProID: 15,
-    name: "山东",
+    name: '山东',
     ProSort: 16,
-    firstP: "S",
-    ProRemark: "省份",
+    firstP: 'S',
+    ProRemark: '省份',
   },
   {
     ProID: 16,
-    name: "河南",
+    name: '河南',
     ProSort: 17,
-    firstP: "H",
-    ProRemark: "省份",
+    firstP: 'H',
+    ProRemark: '省份',
   },
   {
     ProID: 17,
-    name: "湖北",
+    name: '湖北',
     ProSort: 18,
-    firstP: "H",
-    ProRemark: "省份",
+    firstP: 'H',
+    ProRemark: '省份',
   },
   {
     ProID: 18,
-    name: "湖南",
+    name: '湖南',
     ProSort: 19,
-    firstP: "H",
-    ProRemark: "省份",
+    firstP: 'H',
+    ProRemark: '省份',
   },
   {
     ProID: 19,
-    name: "广东",
+    name: '广东',
     ProSort: 20,
-    firstP: "G",
-    ProRemark: "省份",
+    firstP: 'G',
+    ProRemark: '省份',
   },
   {
     ProID: 20,
-    name: "海南",
+    name: '海南',
     ProSort: 24,
-    firstP: "H",
-    ProRemark: "省份",
+    firstP: 'H',
+    ProRemark: '省份',
   },
   {
     ProID: 21,
-    name: "广西",
+    name: '广西',
     ProSort: 28,
-    firstP: "G",
-    ProRemark: "自治区",
+    firstP: 'G',
+    ProRemark: '自治区',
   },
   {
     ProID: 22,
-    name: "甘肃",
+    name: '甘肃',
     ProSort: 21,
-    firstP: "G",
-    ProRemark: "省份",
+    firstP: 'G',
+    ProRemark: '省份',
   },
   {
     ProID: 23,
-    name: "陕西省",
+    name: '陕西省',
     ProSort: 27,
-    firstP: "S",
-    ProRemark: "省份",
+    firstP: 'S',
+    ProRemark: '省份',
   },
   {
     ProID: 24,
-    name: "新疆维吾尔",
+    name: '新疆维吾尔',
     ProSort: 31,
-    firstP: "X",
-    ProRemark: "自治区",
+    firstP: 'X',
+    ProRemark: '自治区',
   },
   {
     ProID: 25,
-    name: "青海",
+    name: '青海',
     ProSort: 26,
-    firstP: "Q",
-    ProRemark: "省份",
+    firstP: 'Q',
+    ProRemark: '省份',
   },
   {
     ProID: 26,
-    name: "宁夏",
+    name: '宁夏',
     ProSort: 30,
-    firstP: "N",
-    ProRemark: "自治区",
+    firstP: 'N',
+    ProRemark: '自治区',
   },
   {
     ProID: 27,
-    name: "重庆",
+    name: '重庆',
     ProSort: 4,
-    firstP: "C",
-    ProRemark: "直辖市",
+    firstP: 'C',
+    ProRemark: '直辖市',
   },
   {
     ProID: 28,
-    name: "四川省",
+    name: '四川省',
     ProSort: 22,
-    firstP: "S",
-    ProRemark: "省份",
+    firstP: 'S',
+    ProRemark: '省份',
   },
   {
     ProID: 29,
-    name: "贵州省",
+    name: '贵州省',
     ProSort: 23,
-    firstP: "G",
-    ProRemark: "省份",
+    firstP: 'G',
+    ProRemark: '省份',
   },
   {
     ProID: 30,
-    name: "云南省",
+    name: '云南省',
     ProSort: 25,
-    firstP: "Y",
-    ProRemark: "省份",
+    firstP: 'Y',
+    ProRemark: '省份',
   },
   {
     ProID: 31,
-    name: "西藏",
+    name: '西藏',
     ProSort: 29,
-    firstP: "X",
-    ProRemark: "自治区",
+    firstP: 'X',
+    ProRemark: '自治区',
   },
   {
     ProID: 32,
-    name: "台湾",
+    name: '台湾',
     ProSort: 7,
-    firstP: "T",
-    ProRemark: "省份",
+    firstP: 'T',
+    ProRemark: '省份',
   },
   {
     ProID: 33,
-    name: "澳门",
+    name: '澳门',
     ProSort: 33,
-    firstP: "A",
-    ProRemark: "特别行政区",
+    firstP: 'A',
+    ProRemark: '特别行政区',
   },
   {
     ProID: 34,
-    name: "香港",
+    name: '香港',
     ProSort: 34,
-    firstP: "X",
-    ProRemark: "特别行政区",
+    firstP: 'X',
+    ProRemark: '特别行政区',
   },
-];
+]
 
-addCityBtn(cityName);
+addCityBtn(cityName)
 
 function addCityBtn(data) {
-  var li_con = "";
+  var li_con = ''
   for (var i = 0; i < data.length; i++) {
-    li_con += "<li>" + data[i].name + "</li>";
+    li_con += '<li>' + data[i].name + '</li>'
   }
-  $("#city").html(li_con);
-  $("#citys").html(li_con);
+  $('#city').html(li_con)
+  $('#citys').html(li_con)
 }
 
-$(".city-btn").on("click", "li", function () {
-  var str;
-  var patt = [/[a-z]/i, /[a-e]/i, /[f-i]/i, /[k-o]/i, /[p-t]/i, /[u-z]/i];
-  var index = $(this).index();
-  var li_con = "";
+$('.city-btn').on('click', 'li', function () {
+  var str
+  var patt = [/[a-z]/i, /[a-e]/i, /[f-i]/i, /[k-o]/i, /[p-t]/i, /[u-z]/i]
+  var index = $(this).index()
+  var li_con = ''
   for (var i = 0; i < cityName.length; i++) {
-    str = cityName[i].firstP;
+    str = cityName[i].firstP
     if (patt[index].test(str)) {
-      li_con += "<li>" + cityName[i].name + "</li>";
+      li_con += '<li>' + cityName[i].name + '</li>'
     }
   }
 
-  $(this).addClass("active").siblings("li").removeClass("active");
+  $(this).addClass('active').siblings('li').removeClass('active')
   if (index == 0) {
-    $("#city").children().removeClass("active");
-    if ($(this).parent().data("city") == 1) {
-      $(".ranking-box").show();
-      if ($("#barType").find(".active").data("value") == 1) {
-        $("#titleQ").html("<span>全网</span>到珠海");
-      } else if ($("#barType").find(".active").data("value") == 2) {
-        $("#titleQ").html("珠海到<span>全网</span>");
+    $('#city').children().removeClass('active')
+    if ($(this).parent().data('city') == 1) {
+      $('.ranking-box').show()
+      if ($('#barType').find('.active').data('value') == 1) {
+        $('#titleQ').html('<span>全网</span>到珠海')
+      } else if ($('#barType').find('.active').data('value') == 2) {
+        $('#titleQ').html('珠海到<span>全网</span>')
       }
-      $("#city").html(li_con);
-    } else if ($(this).parent().data("city") == 2) {
-      if ($(".cont-div").eq(0).css("visibility") != "hidden") {
-        $(".ranking-box").show();
+      $('#city').html(li_con)
+    } else if ($(this).parent().data('city') == 2) {
+      if ($('.cont-div').eq(0).css('visibility') != 'hidden') {
+        $('.ranking-box').show()
       }
-      if ($("#barTypes").find(".active").data("value") == 1) {
-        $("#titleQs").html("<span>全网</span>到珠海");
-      } else if ($("#barTypes").find(".active").data("value") == 2) {
-        $("#titleQs").html("珠海到<span>全网</span>");
+      if ($('#barTypes').find('.active').data('value') == 1) {
+        $('#titleQs').html('<span>全网</span>到珠海')
+      } else if ($('#barTypes').find('.active').data('value') == 2) {
+        $('#titleQs').html('珠海到<span>全网</span>')
       }
-      $("#citys").html(li_con);
+      $('#citys').html(li_con)
     }
   } else {
-    if ($(this).parent().data("city") == 1) {
-      $("#city").html(li_con);
-    } else if ($(this).parent().data("city") == 2) {
-      $("#citys").html(li_con);
+    if ($(this).parent().data('city') == 1) {
+      $('#city').html(li_con)
+    } else if ($(this).parent().data('city') == 2) {
+      $('#citys').html(li_con)
     }
   }
-});
+})
 
-$("#city").on("click", "li", function () {
-  $(this).addClass("active").siblings("li").removeClass("active");
-  $(".center-bottom .ranking-box").hide();
-  if ($("#barType").find(".active").data("value") == 1) {
-    $("#titleQ").html("<span>" + $(this).html() + "</span>到珠海");
-  } else if ($("#barType").find(".active").data("value") == 2) {
-    $("#titleQ").html("珠海到<span>" + $(this).html() + "</span>");
+$('#city').on('click', 'li', function () {
+  $(this).addClass('active').siblings('li').removeClass('active')
+  $('.center-bottom .ranking-box').hide()
+  if ($('#barType').find('.active').data('value') == 1) {
+    $('#titleQ').html('<span>' + $(this).html() + '</span>到珠海')
+  } else if ($('#barType').find('.active').data('value') == 2) {
+    $('#titleQ').html('珠海到<span>' + $(this).html() + '</span>')
   }
-});
+})
 
-$("#citys").on("click", "li", function () {
-  $(this).addClass("active").siblings("li").removeClass("active");
-  $(".pop-data .ranking-box").hide();
-  if ($("#barTypes").find(".active").data("value") == 1) {
-    $("#titleQs").html("<span>" + $(this).html() + "</span>到珠海");
-  } else if ($("#barTypes").find(".active").data("value") == 2) {
-    $("#titleQs").html("珠海到<span>" + $(this).html() + "</span>");
+$('#citys').on('click', 'li', function () {
+  $(this).addClass('active').siblings('li').removeClass('active')
+  $('.pop-data .ranking-box').hide()
+  if ($('#barTypes').find('.active').data('value') == 1) {
+    $('#titleQs').html('<span>' + $(this).html() + '</span>到珠海')
+  } else if ($('#barTypes').find('.active').data('value') == 2) {
+    $('#titleQs').html('珠海到<span>' + $(this).html() + '</span>')
   }
-});
-
-//寄派件选择
-$("#barType").on("click", "li", function () {
-  $(this).addClass("active").siblings("li").removeClass("active");
-  $("#barTitle").html($(this).html() + "数据");
-  $("#tabBtn").data("state", $(this).data("value"));
-  if ($(this).data("value") == 1) {
-    $(".table1").eq(0).show().siblings("table").hide();
-  } else if ($(this).data("value") == 2) {
-    $(".table1").eq(1).show().siblings("table").hide();
-  }
-  chart3($(this).data("value"), 0);
-  chart4(chart4Data, $(this).data("value"), 0);
-});
+})
 
 //寄派件选择
-$("#barTypes").on("click", "li", function () {
-  $(this).addClass("active").siblings("li").removeClass("active");
-  $("#barTitles").html($(this).html() + "数据");
-  $("#tabBtns").data("state", $(this).data("value"));
-  if ($(this).data("value") == 1) {
-    $(".table2").eq(0).show().siblings("table").hide();
-  } else if ($(this).data("value") == 2) {
-    $(".table2").eq(1).show().siblings("table").hide();
+$('#barType').on('click', 'li', function () {
+  $(this).addClass('active').siblings('li').removeClass('active')
+  $('#barTitle').html($(this).html() + '数据')
+  $('#tabBtn').data('state', $(this).data('value'))
+  if ($(this).data('value') == 1) {
+    $('.table1').eq(0).show().siblings('table').hide()
+  } else if ($(this).data('value') == 2) {
+    $('.table1').eq(1).show().siblings('table').hide()
   }
-  chart3($(this).data("value"), 1);
-  chart4(chart4Data, $(this).data("value"), 1);
-});
+  chart3($(this).data('value'), 0)
+  chart4(chart4Data, $(this).data('value'), 0)
+})
+
+//寄派件选择
+$('#barTypes').on('click', 'li', function () {
+  $(this).addClass('active').siblings('li').removeClass('active')
+  $('#barTitles').html($(this).html() + '数据')
+  $('#tabBtns').data('state', $(this).data('value'))
+  if ($(this).data('value') == 1) {
+    $('.table2').eq(0).show().siblings('table').hide()
+  } else if ($(this).data('value') == 2) {
+    $('.table2').eq(1).show().siblings('table').hide()
+  }
+  chart3($(this).data('value'), 1)
+  chart4(chart4Data, $(this).data('value'), 1)
+})
 
 function chart3(type, chartType) {
-  var myChart = echarts.init(document.getElementById("chart3"));
-  var myCharts = echarts.init(document.getElementById("chart3s"));
-  window.addEventListener("resize", function () {
-    myChart.resize();
-    myCharts.resize();
-  });
+  var myChart = echarts.init(document.getElementById('chart3'))
+  var myCharts = echarts.init(document.getElementById('chart3s'))
+  window.addEventListener('resize', function () {
+    myChart.resize()
+    myCharts.resize()
+  })
 
   //    设置背景阴影的参数，获取数据的最大值
 
-  var data; //横坐标数据，不动
-  var data_; //模拟数据
+  var data //横坐标数据，不动
+  var data_ //模拟数据
   if (type == 1) {
     data_ = [
       {
-        name: "入库件",
+        name: '入库件',
         value: 584,
       },
       {
-        name: "滞留件",
+        name: '滞留件',
         value: 152,
       },
       {
-        name: "丢失件",
+        name: '丢失件',
         value: 100,
       },
       {
-        name: "正常件",
+        name: '正常件',
         value: 689,
       },
       {
-        name: "派送件",
+        name: '派送件',
         value: 200,
       },
       {
-        name: "自提件",
+        name: '自提件',
         value: 121,
       },
       {
-        name: "退签件",
+        name: '退签件',
         value: 92,
       },
-    ];
+    ]
   } else if (type == 2) {
     data_ = [
       {
-        name: "入库件",
+        name: '入库件',
         value: 568,
       },
       {
-        name: "丢失件",
+        name: '丢失件',
         value: 287,
       },
       {
-        name: "滞留件",
+        name: '滞留件',
         value: 120,
       },
       {
-        name: "撤销件",
+        name: '撤销件',
         value: 152,
       },
       {
-        name: "出库件",
+        name: '出库件',
         value: 125,
       },
       {
-        name: "正常件",
+        name: '正常件',
         value: 122,
       },
-    ];
+    ]
   }
-  var series_data; //绘制图表的数据
+  var series_data //绘制图表的数据
   //绘制图表
-  var yMax = 0;
+  var yMax = 0
   for (var j = 0; j < data_.length; j++) {
     if (yMax < data_[j].value) {
-      yMax = data_[j].value;
+      yMax = data_[j].value
     }
   }
-  var dataShadow = [];
+  var dataShadow = []
   for (var i = 0; i < 10; i++) {
-    dataShadow.push(yMax * 2);
+    dataShadow.push(yMax * 2)
   }
 
   if (type == 1) {
-    data = ["入库件", "在库件", "出库件", "退签件", "丢失件"];
+    data = ['入库件', '在库件', '出库件', '退签件', '丢失件']
 
-    if (chartType == "") {
-      $(" .dph-data1").html(data_[0].value);
-      $(" .dph-data2").html(data_[1].value + data_[3].value);
-      $(" .dph-data3").html(data_[3].value);
-      $(" .dph-data4").html(data_[2].value);
-      $(" .dph-data5").html(data_[1].value);
-      $(" .dph-data6").html(data_[4].value + data_[5].value);
-      $(" .dph-data7").html(data_[4].value);
-      $(" .dph-data8").html(data_[5].value);
-      $(" .dph-data9").html(data_[6].value);
+    if (chartType == '') {
+      $(' .dph-data1').html(data_[0].value)
+      $(' .dph-data2').html(data_[1].value + data_[3].value)
+      $(' .dph-data3').html(data_[3].value)
+      $(' .dph-data4').html(data_[2].value)
+      $(' .dph-data5').html(data_[1].value)
+      $(' .dph-data6').html(data_[4].value + data_[5].value)
+      $(' .dph-data7').html(data_[4].value)
+      $(' .dph-data8').html(data_[5].value)
+      $(' .dph-data9').html(data_[6].value)
     } else if (chartType == 0) {
-      $(".table1 .dph-data1").html(data_[0].value);
-      $(".table1 .dph-data2").html(data_[1].value + data_[3].value);
-      $(".table1 .dph-data3").html(data_[3].value);
-      $(".table1 .dph-data4").html(data_[2].value);
-      $(".table1 .dph-data5").html(data_[1].value);
-      $(".table1 .dph-data6").html(data_[4].value + data_[5].value);
-      $(".table1 .dph-data7").html(data_[4].value);
-      $(".table1 .dph-data8").html(data_[5].value);
-      $(".table1 .dph-data9").html(data_[6].value);
+      $('.table1 .dph-data1').html(data_[0].value)
+      $('.table1 .dph-data2').html(data_[1].value + data_[3].value)
+      $('.table1 .dph-data3').html(data_[3].value)
+      $('.table1 .dph-data4').html(data_[2].value)
+      $('.table1 .dph-data5').html(data_[1].value)
+      $('.table1 .dph-data6').html(data_[4].value + data_[5].value)
+      $('.table1 .dph-data7').html(data_[4].value)
+      $('.table1 .dph-data8').html(data_[5].value)
+      $('.table1 .dph-data9').html(data_[6].value)
     } else if (chartType == 1) {
-      $(".table2 .dph-data1").html(data_[0].value);
-      $(".table2 .dph-data2").html(data_[1].value + data_[3].value);
-      $(".table2 .dph-data3").html(data_[3].value);
-      $(".table2 .dph-data4").html(data_[2].value);
-      $(".table2 .dph-data5").html(data_[1].value);
-      $(".table2 .dph-data6").html(data_[4].value + data_[5].value);
-      $(".table2 .dph-data7").html(data_[4].value);
-      $(".table2 .dph-data8").html(data_[5].value);
-      $(".table2 .dph-data9").html(data_[6].value);
+      $('.table2 .dph-data1').html(data_[0].value)
+      $('.table2 .dph-data2').html(data_[1].value + data_[3].value)
+      $('.table2 .dph-data3').html(data_[3].value)
+      $('.table2 .dph-data4').html(data_[2].value)
+      $('.table2 .dph-data5').html(data_[1].value)
+      $('.table2 .dph-data6').html(data_[4].value + data_[5].value)
+      $('.table2 .dph-data7').html(data_[4].value)
+      $('.table2 .dph-data8').html(data_[5].value)
+      $('.table2 .dph-data9').html(data_[6].value)
     }
 
     series_data = [
       {
         // For shadow
-        type: "bar",
+        type: 'bar',
         barWidth: 20,
         xAxisIndex: 2,
         tooltip: {
@@ -1166,21 +1156,21 @@ function chart3(type, chartType) {
         },
         itemStyle: {
           normal: {
-            color: "rgba(14, 148, 235, 0.102)",
+            color: 'rgba(14, 148, 235, 0.102)',
           },
         },
         data: dataShadow,
         animation: false,
       },
       {
-        name: "入库件",
-        type: "bar",
-        barGap: "-100%",
-        barWidth: "40%",
+        name: '入库件',
+        type: 'bar',
+        barGap: '-100%',
+        barWidth: '40%',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "#0e94eb",
+            color: '#0e94eb',
           },
           emphasis: {
             opacity: 1,
@@ -1189,13 +1179,13 @@ function chart3(type, chartType) {
         data: [data_[0], 0, 0, 0, 0],
       },
       {
-        name: "滞留件",
-        type: "bar",
-        stack: "在库件",
+        name: '滞留件',
+        type: 'bar',
+        stack: '在库件',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(239,176,19,.9)",
+            color: 'rgba(239,176,19,.9)',
           },
           emphasis: {
             opacity: 1,
@@ -1204,12 +1194,12 @@ function chart3(type, chartType) {
         data: [0, data_[1], 0, 0, 0],
       },
       {
-        name: "丢失件",
-        type: "bar",
+        name: '丢失件',
+        type: 'bar',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(239,176,19,0.4)",
+            color: 'rgba(239,176,19,0.4)',
           },
           emphasis: {
             opacity: 1,
@@ -1218,13 +1208,13 @@ function chart3(type, chartType) {
         data: [0, 0, 0, 0, data_[2]],
       },
       {
-        name: "正常件",
-        type: "bar",
-        stack: "在库件",
+        name: '正常件',
+        type: 'bar',
+        stack: '在库件',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(239,176,19,0.3)",
+            color: 'rgba(239,176,19,0.3)',
           },
           emphasis: {
             opacity: 1,
@@ -1233,13 +1223,13 @@ function chart3(type, chartType) {
         data: [0, data_[3], 0, 0, 0],
       },
       {
-        name: "派送件",
-        type: "bar",
-        stack: "出库件",
+        name: '派送件',
+        type: 'bar',
+        stack: '出库件',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(196,64,239,0.8)",
+            color: 'rgba(196,64,239,0.8)',
           },
           emphasis: {
             opacity: 1,
@@ -1248,13 +1238,13 @@ function chart3(type, chartType) {
         data: [0, 0, data_[4], 0, 0],
       },
       {
-        name: "自提件",
-        type: "bar",
-        stack: "出库件",
+        name: '自提件',
+        type: 'bar',
+        stack: '出库件',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(196,64,239,0.4)",
+            color: 'rgba(196,64,239,0.4)',
           },
           emphasis: {
             opacity: 1,
@@ -1263,12 +1253,12 @@ function chart3(type, chartType) {
         data: [0, 0, data_[5], 0, 0],
       },
       {
-        name: "退签件",
-        type: "bar",
+        name: '退签件',
+        type: 'bar',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(219,44,44,0.8)",
+            color: 'rgba(219,44,44,0.8)',
           },
           emphasis: {
             opacity: 1,
@@ -1276,39 +1266,39 @@ function chart3(type, chartType) {
         },
         data: [0, 0, 0, data_[6], 0],
       },
-    ];
+    ]
   } else if (type == 2) {
-    data = ["入库件", "在库件", "出库件", "丢失件", "撤销件"];
-    if (chartType == "") {
-      $(".mail-data1").html(data_[0].value);
-      $(".mail-data2").html(data_[2].value + data_[5].value);
-      $(".mail-data3").html(data_[1].value);
-      $(".mail-data4").html(data_[2].value);
-      $(".mail-data5").html(data_[3].value);
-      $(".mail-data6").html(data_[4].value);
-      $(".mail-data7").html(data_[5].value);
+    data = ['入库件', '在库件', '出库件', '丢失件', '撤销件']
+    if (chartType == '') {
+      $('.mail-data1').html(data_[0].value)
+      $('.mail-data2').html(data_[2].value + data_[5].value)
+      $('.mail-data3').html(data_[1].value)
+      $('.mail-data4').html(data_[2].value)
+      $('.mail-data5').html(data_[3].value)
+      $('.mail-data6').html(data_[4].value)
+      $('.mail-data7').html(data_[5].value)
     } else if (chartType == 0) {
-      $(".table1 .mail-data1").html(data_[0].value);
-      $(".table1 .mail-data2").html(data_[2].value + data_[5].value);
-      $(".table1 .mail-data3").html(data_[1].value);
-      $(".table1 .mail-data4").html(data_[2].value);
-      $(".table1 .mail-data5").html(data_[3].value);
-      $(".table1 .mail-data6").html(data_[4].value);
-      $(".table1 .mail-data7").html(data_[5].value);
+      $('.table1 .mail-data1').html(data_[0].value)
+      $('.table1 .mail-data2').html(data_[2].value + data_[5].value)
+      $('.table1 .mail-data3').html(data_[1].value)
+      $('.table1 .mail-data4').html(data_[2].value)
+      $('.table1 .mail-data5').html(data_[3].value)
+      $('.table1 .mail-data6').html(data_[4].value)
+      $('.table1 .mail-data7').html(data_[5].value)
     } else if (chartType == 1) {
-      $(".table2 .mail-data1").html(data_[0].value);
-      $(".table2 .mail-data2").html(data_[2].value + data_[5].value);
-      $(".table2 .mail-data3").html(data_[1].value);
-      $(".table2 .mail-data4").html(data_[2].value);
-      $(".table2 .mail-data5").html(data_[3].value);
-      $(".table2 .mail-data6").html(data_[4].value);
-      $(".table2 .mail-data7").html(data_[5].value);
+      $('.table2 .mail-data1').html(data_[0].value)
+      $('.table2 .mail-data2').html(data_[2].value + data_[5].value)
+      $('.table2 .mail-data3').html(data_[1].value)
+      $('.table2 .mail-data4').html(data_[2].value)
+      $('.table2 .mail-data5').html(data_[3].value)
+      $('.table2 .mail-data6').html(data_[4].value)
+      $('.table2 .mail-data7').html(data_[5].value)
     }
 
     series_data = [
       {
         // For shadow
-        type: "bar",
+        type: 'bar',
         barWidth: 20,
         xAxisIndex: 2,
         tooltip: {
@@ -1316,21 +1306,21 @@ function chart3(type, chartType) {
         },
         itemStyle: {
           normal: {
-            color: "rgba(14, 148, 235, 0.102)",
+            color: 'rgba(14, 148, 235, 0.102)',
           },
         },
         data: dataShadow,
         animation: false,
       },
       {
-        name: "入库件",
-        barGap: "-100%",
-        barWidth: "40%",
-        type: "bar",
+        name: '入库件',
+        barGap: '-100%',
+        barWidth: '40%',
+        type: 'bar',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "#0e94eb",
+            color: '#0e94eb',
           },
           emphasis: {
             opacity: 1,
@@ -1339,13 +1329,13 @@ function chart3(type, chartType) {
         data: [data_[0], 0, 0, 0, 0],
       },
       {
-        name: "正常件",
-        type: "bar",
-        stack: "在库件",
+        name: '正常件',
+        type: 'bar',
+        stack: '在库件',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(239,176,19,.9)",
+            color: 'rgba(239,176,19,.9)',
           },
           emphasis: {
             opacity: 1,
@@ -1354,12 +1344,12 @@ function chart3(type, chartType) {
         data: [0, data_[5], 0, 0, 0, 0],
       },
       {
-        name: "丢失件",
-        type: "bar",
+        name: '丢失件',
+        type: 'bar',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(239,176,19,.9)",
+            color: 'rgba(239,176,19,.9)',
           },
           emphasis: {
             opacity: 1,
@@ -1368,13 +1358,13 @@ function chart3(type, chartType) {
         data: [0, 0, 0, data_[1], 0],
       },
       {
-        name: "滞留件",
-        type: "bar",
+        name: '滞留件',
+        type: 'bar',
         xAxisIndex: 1,
-        stack: "在库件",
+        stack: '在库件',
         itemStyle: {
           normal: {
-            color: "rgba(239,176,19,0.4)",
+            color: 'rgba(239,176,19,0.4)',
           },
           emphasis: {
             opacity: 1,
@@ -1384,12 +1374,12 @@ function chart3(type, chartType) {
         data: [0, data_[2], 0, 0, 0],
       },
       {
-        name: "撤销件",
-        type: "bar",
+        name: '撤销件',
+        type: 'bar',
         xAxisIndex: 1,
         itemStyle: {
           normal: {
-            color: "rgba(239,176,19,0.3)",
+            color: 'rgba(239,176,19,0.3)',
           },
           emphasis: {
             opacity: 1,
@@ -1398,13 +1388,13 @@ function chart3(type, chartType) {
         data: [0, 0, 0, 0, data_[3]],
       },
       {
-        name: "出库件",
-        type: "bar",
+        name: '出库件',
+        type: 'bar',
         xAxisIndex: 1,
-        stack: "退签件",
+        stack: '退签件',
         itemStyle: {
           normal: {
-            color: "rgba(196,64,239,0.8)",
+            color: 'rgba(196,64,239,0.8)',
           },
           emphasis: {
             opacity: 1,
@@ -1412,13 +1402,13 @@ function chart3(type, chartType) {
         },
         data: [0, 0, data_[4], 0, 0],
       },
-    ];
+    ]
   }
 
   var option = {
-    title: "",
+    title: '',
     grid: {
-      top: "10%",
+      top: '10%',
       containLabel: true,
     },
     tooltip: {
@@ -1426,18 +1416,18 @@ function chart3(type, chartType) {
     },
     xAxis: [
       {
-        type: "category",
+        type: 'category',
         show: false,
         data: data,
         axisLabel: {
           textStyle: {
-            color: "#fff",
+            color: '#fff',
           },
         },
       },
       {
-        type: "category",
-        position: "bottom",
+        type: 'category',
+        position: 'bottom',
         data: data,
         boundaryGap: true,
         // offset: 40,
@@ -1449,7 +1439,7 @@ function chart3(type, chartType) {
         },
         axisLabel: {
           textStyle: {
-            color: "#fff",
+            color: '#fff',
           },
         },
       },
@@ -1459,7 +1449,7 @@ function chart3(type, chartType) {
         axisLabel: {
           inside: true,
           textStyle: {
-            color: "#fff",
+            color: '#fff',
           },
         },
         axisTick: {
@@ -1477,7 +1467,7 @@ function chart3(type, chartType) {
         splitLine: {
           show: false,
           lineStyle: {
-            color: "#0e94eb",
+            color: '#0e94eb',
           },
         },
         axisTick: {
@@ -1488,17 +1478,17 @@ function chart3(type, chartType) {
         },
         axisLabel: {
           show: true,
-          color: "#0e94eb",
+          color: '#0e94eb',
         },
       },
       {
         show: false,
-        type: "value",
+        type: 'value',
         nameTextStyle: {
-          color: "#0e94eb",
+          color: '#0e94eb',
         },
         axisLabel: {
-          color: "#0e94eb",
+          color: '#0e94eb',
         },
         splitLine: {
           show: false,
@@ -1519,111 +1509,111 @@ function chart3(type, chartType) {
         },
         axisLabel: {
           textStyle: {
-            color: "#999",
+            color: '#999',
           },
         },
       },
     ],
     //        color: ['#e54035'],
     series: series_data,
-  };
-  if (chartType === "") {
-    myChart.clear();
-    myCharts.clear();
-    myChart.setOption(option);
-    myCharts.setOption(option);
+  }
+  if (chartType === '') {
+    myChart.clear()
+    myCharts.clear()
+    myChart.setOption(option)
+    myCharts.setOption(option)
   } else if (chartType === 0) {
-    myChart.clear();
-    myChart.setOption(option);
+    myChart.clear()
+    myChart.setOption(option)
   } else if (chartType === 1) {
-    myCharts.clear();
-    myCharts.setOption(option);
+    myCharts.clear()
+    myCharts.setOption(option)
   }
 }
 
-chart3(1, "");
+chart3(1, '')
 //
 //
 //
-$("#dateBtn").on("click", function () {
-  if ($("#timeBox").is(":hidden")) {
-    $("#timeBox").show();
-    document.getElementById("timeBox").focus();
+$('#dateBtn').on('click', function () {
+  if ($('#timeBox').is(':hidden')) {
+    $('#timeBox').show()
+    document.getElementById('timeBox').focus()
   } else {
-    $("#timeBox").hide();
+    $('#timeBox').hide()
   }
-});
+})
 
-$("#dateBtns").on("click", function () {
-  if ($("#timeBoxs").is(":hidden")) {
-    $("#timeBoxs").show();
-    document.getElementById("timeBoxs").focus();
+$('#dateBtns').on('click', function () {
+  if ($('#timeBoxs').is(':hidden')) {
+    $('#timeBoxs').show()
+    document.getElementById('timeBoxs').focus()
   } else {
-    $("#timeBoxs").hide();
+    $('#timeBoxs').hide()
   }
-});
+})
 
-$("#switchBtn").on("click", "span", function () {
-  $(this).addClass("active").siblings().removeClass("active");
-  if ($(this).data("datatype") == "income") {
-    $("#totalProfit").html("123,456.5元");
-  } else if ($(this).data("datatype") == "expend") {
-    $("#totalProfit").html("32,111.4元");
+$('#switchBtn').on('click', 'span', function () {
+  $(this).addClass('active').siblings().removeClass('active')
+  if ($(this).data('datatype') == 'income') {
+    $('#totalProfit').html('123,456.5元')
+  } else if ($(this).data('datatype') == 'expend') {
+    $('#totalProfit').html('32,111.4元')
   }
-});
+})
 
-$("#tabBtn").on("click", function () {
-  var _this = $(this);
-  if ($(".right-top").children(".chart-box").is(":hidden")) {
-    _this.children("span").html("图表");
-    $(".right-top").children(".chart-box").show().siblings(".data-box").hide();
+$('#tabBtn').on('click', function () {
+  var _this = $(this)
+  if ($('.right-top').children('.chart-box').is(':hidden')) {
+    _this.children('span').html('图表')
+    $('.right-top').children('.chart-box').show().siblings('.data-box').hide()
   } else {
-    _this.children("span").html("表格");
-    $(".right-top").children(".data-box").show().siblings(".chart-box").hide();
-    if (_this.data("state") == 1) {
-      $(".table1").eq(0).show().siblings("table").hide();
-    } else if (_this.data("state") == 2) {
-      $(".table1").eq(1).show().siblings("table").hide();
+    _this.children('span').html('表格')
+    $('.right-top').children('.data-box').show().siblings('.chart-box').hide()
+    if (_this.data('state') == 1) {
+      $('.table1').eq(0).show().siblings('table').hide()
+    } else if (_this.data('state') == 2) {
+      $('.table1').eq(1).show().siblings('table').hide()
     }
   }
-});
+})
 
-$("#tabBtns").on("click", function () {
-  var _this = $(this);
-  if (_this.siblings(".pop-chart").is(":hidden")) {
-    _this.children("span").html("图表");
-    _this.siblings(".pop-chart").show().siblings(".data-box").hide();
+$('#tabBtns').on('click', function () {
+  var _this = $(this)
+  if (_this.siblings('.pop-chart').is(':hidden')) {
+    _this.children('span').html('图表')
+    _this.siblings('.pop-chart').show().siblings('.data-box').hide()
   } else {
-    _this.children("span").html("表格");
-    _this.siblings(".data-box").show().siblings(".chart-box").hide();
-    if (_this.data("state") == 1) {
-      $(".table2").eq(0).show().siblings("table").hide();
-    } else if (_this.data("state") == 2) {
-      $(".table2").eq(1).show().siblings("table").hide();
+    _this.children('span').html('表格')
+    _this.siblings('.data-box').show().siblings('.chart-box').hide()
+    if (_this.data('state') == 1) {
+      $('.table2').eq(0).show().siblings('table').hide()
+    } else if (_this.data('state') == 2) {
+      $('.table2').eq(1).show().siblings('table').hide()
     }
   }
-});
+})
 
 //时间选择器
-var startV = "";
-var endV = "";
-laydate.skin("danlan");
+var startV = ''
+var endV = ''
+laydate.skin('danlan')
 var startTime = {
-  elem: "#startTime",
-  format: "YYYY-MM-DD",
-  min: "1997-01-01", //设定最小日期为当前日期
+  elem: '#startTime',
+  format: 'YYYY-MM-DD',
+  min: '1997-01-01', //设定最小日期为当前日期
   max: laydate.now(), //最大日期
   istime: true,
   istoday: true,
   fixed: false,
   choose: function (datas) {
-    startV = datas;
-    endTime.min = datas; //开始日选好后，重置结束日的最小日期
+    startV = datas
+    endTime.min = datas //开始日选好后，重置结束日的最小日期
   },
-};
+}
 var endTime = {
-  elem: "#endTime",
-  format: "YYYY-MM-DD",
+  elem: '#endTime',
+  format: 'YYYY-MM-DD',
   min: laydate.now(),
   max: laydate.now(),
   istime: true,
@@ -1631,34 +1621,34 @@ var endTime = {
   fixed: false,
   choose: function (datas) {
     //        startTime.max = datas; //结束日选好后，重置开始日的最大日期
-    endV = datas;
+    endV = datas
   },
-};
+}
 
-laydate(startTime);
-laydate(endTime);
+laydate(startTime)
+laydate(endTime)
 
 //时间选择器
-var startVs = "";
-var endVs = "";
-laydate.skin("danlan");
+var startVs = ''
+var endVs = ''
+laydate.skin('danlan')
 var startTimes = {
-  elem: "#startTimes",
-  format: "YYYY-MM-DD",
-  min: "1997-01-01", //设定最小日期为当前日期
-  max: "2099-06-16", //最大日期
+  elem: '#startTimes',
+  format: 'YYYY-MM-DD',
+  min: '1997-01-01', //设定最小日期为当前日期
+  max: '2099-06-16', //最大日期
   istime: true,
   istoday: true,
   fixed: false,
   choose: function (datas) {
-    startVs = datas;
-    endTimes.min = datas; //开始日选好后，重置结束日的最小日期
-    setQgData($("#barTypes").parent().parent(), 1);
+    startVs = datas
+    endTimes.min = datas //开始日选好后，重置结束日的最小日期
+    setQgData($('#barTypes').parent().parent(), 1)
   },
-};
+}
 var endTimes = {
-  elem: "#endTimes",
-  format: "YYYY-MM-DD",
+  elem: '#endTimes',
+  format: 'YYYY-MM-DD',
   min: laydate.now(),
   max: laydate.now(),
   istime: true,
@@ -1666,114 +1656,107 @@ var endTimes = {
   fixed: false,
   choose: function (datas) {
     //        startTime.max = datas; //结束日选好后，重置开始日的最大日期
-    endVs = datas;
-    setQgData($("#barTypes").parent().parent(), 1);
+    endVs = datas
+    setQgData($('#barTypes').parent().parent(), 1)
   },
-};
+}
 
-laydate(startTimes);
-laydate(endTimes);
+laydate(startTimes)
+laydate(endTimes)
 
 //点击时间选择器的时候更改样式
-$("#endTime").on("click", function () {
-  dateCss();
-});
+$('#endTime').on('click', function () {
+  dateCss()
+})
 
-$("#end").on("click", function () {
-  dateCss();
-});
+$('#end').on('click', function () {
+  dateCss()
+})
 
 //更改日期插件的样式
 function dateCss() {
-  var arr = $("#laydate_box").attr("style").split(";");
-  var cssStr = "position:absolute;right:0;";
+  var arr = $('#laydate_box').attr('style').split(';')
+  var cssStr = 'position:absolute;right:0;'
   for (var i = 0; i < arr.length; i++) {
-    if (arr[i].indexOf("top") != -1) {
-      cssStr += arr[i];
+    if (arr[i].indexOf('top') != -1) {
+      cssStr += arr[i]
     }
   }
 
-  $("#laydate_box").attr("style", cssStr);
+  $('#laydate_box').attr('style', cssStr)
 }
 
 //chart4Data模拟数据
 var chart4Data = [
   {
-    name: "天津市",
+    name: '天津市',
     value: 178546,
   },
   {
-    name: "湖南省",
+    name: '湖南省',
     value: 125687,
   },
   {
-    name: "福建省",
+    name: '福建省',
     value: 78452,
   },
   {
-    name: "北京市",
+    name: '北京市',
     value: 57841,
   },
   {
-    name: "江苏省",
+    name: '江苏省',
     value: 45879,
   },
   {
-    name: "海南",
+    name: '海南',
     value: 28584,
   },
   {
-    name: "四川省",
+    name: '四川省',
     value: 14852,
   },
   {
-    name: "浙江省",
+    name: '浙江省',
     value: 12589,
   },
   {
-    name: "重庆市",
+    name: '重庆市',
     value: 5261,
   },
   {
-    name: "香港特别行政区",
+    name: '香港特别行政区',
     value: 2563,
   },
   {
-    name: "内蒙古",
+    name: '内蒙古',
     value: 856,
   },
-];
-chart4(chart4Data, 1, "");
+]
+chart4(chart4Data, 1, '')
 
 function chart4(data, type, chartType) {
-  var str = "<li><span></span><p>城市</p><p>派件</p></li>";
+  var str = '<li><span></span><p>城市</p><p>派件</p></li>'
   for (var i = 0; i < 10; i++) {
-    str +=
-      "<li><span>" +
-      (i + 1) +
-      "</span><p>" +
-      data[i].name +
-      "</p><p>" +
-      data[i].value +
-      "</p></li>";
+    str += '<li><span>' + (i + 1) + '</span><p>' + data[i].name + '</p><p>' + data[i].value + '</p></li>'
   }
 
-  var s_data = [];
-  var myChart = echarts.init(document.getElementById("chart4"));
-  var myCharts = echarts.init(document.getElementById("chart4s"));
-  window.addEventListener("resize", function () {
-    myChart.resize();
-    myCharts.resize();
-  });
+  var s_data = []
+  var myChart = echarts.init(document.getElementById('chart4'))
+  var myCharts = echarts.init(document.getElementById('chart4s'))
+  window.addEventListener('resize', function () {
+    myChart.resize()
+    myCharts.resize()
+  })
 
   function formtGCData(geoData, data, srcNam, dest) {
-    var tGeoDt = [];
+    var tGeoDt = []
     if (dest) {
       for (var i = 0, len = data.length; i < len; i++) {
         if (srcNam != data[i].name) {
           tGeoDt.push({
             coords: [geoData[srcNam], geoData[data[i].name]],
-          });
+          })
         }
       }
     } else {
@@ -1781,28 +1764,28 @@ function chart4(data, type, chartType) {
         if (srcNam != data[i].name) {
           tGeoDt.push({
             coords: [geoData[data[i].name], geoData[srcNam]],
-          });
+          })
         }
       }
     }
-    return tGeoDt;
+    return tGeoDt
   }
 
   function formtVData(geoData, data, srcNam) {
-    var tGeoDt = [];
+    var tGeoDt = []
     for (var i = 0, len = data.length; i < len; i++) {
-      var tNam = data[i].name;
+      var tNam = data[i].name
       if (srcNam != tNam) {
         tGeoDt.push({
           name: tNam,
           symbolSize: 2,
           itemStyle: {
             normal: {
-              color: "#ffeb40",
+              color: '#ffeb40',
             },
           },
           value: geoData[tNam],
-        });
+        })
       }
     }
     tGeoDt.push({
@@ -1811,98 +1794,98 @@ function chart4(data, type, chartType) {
       symbolSize: 5,
       itemStyle: {
         normal: {
-          color: "#2ef358",
+          color: '#2ef358',
         },
       },
-    });
-    return tGeoDt;
+    })
+    return tGeoDt
   }
 
-  var planePath = "pin";
+  var planePath = 'pin'
   if (type == 2) {
     s_data.push({
-      type: "lines",
+      type: 'lines',
       zlevel: 2,
-      mapType: "china",
-      symbol: "none",
+      mapType: 'china',
+      symbol: 'none',
       effect: {
         show: true,
         period: 1.5,
         trailLength: 0.1,
         //                color: '#ffeb40',
-        color: "#2ef358",
+        color: '#2ef358',
         symbol: planePath,
         symbolSize: 6,
         trailLength: 0.5,
       },
       lineStyle: {
         normal: {
-          color: "#2ef358",
+          color: '#2ef358',
           width: 1,
           opacity: 0.4,
           curveness: 0.2,
         },
       },
-      data: formtGCData(geoCoordMap, data, "珠海", true),
-    });
+      data: formtGCData(geoCoordMap, data, '珠海', true),
+    })
   } else if (type == 1) {
     s_data.push(
       {
-        type: "lines",
+        type: 'lines',
         zlevel: 2,
         effect: {
           show: true,
           period: 1.5,
           trailLength: 0.1,
           //                color: '#2ef358',
-          color: "#ffeb40",
+          color: '#ffeb40',
           symbol: planePath,
           symbolSize: 6,
           trailLength: 0.5,
         },
         lineStyle: {
           normal: {
-            color: "#ffeb40",
+            color: '#ffeb40',
             width: 1,
             opacity: 0.4,
             curveness: 0.2,
           },
         },
-        data: formtGCData(geoCoordMap, data, "珠海", false),
+        data: formtGCData(geoCoordMap, data, '珠海', false),
       },
       {
-        type: "effectScatter",
-        coordinateSystem: "geo",
+        type: 'effectScatter',
+        coordinateSystem: 'geo',
         zlevel: 2,
         rippleEffect: {
           period: 4,
           scale: 2.5,
-          brushType: "stroke",
+          brushType: 'stroke',
         },
-        symbol: "none",
+        symbol: 'none',
         symbolSize: 4,
         itemStyle: {
           normal: {
-            color: "#fff",
+            color: '#fff',
           },
         },
 
-        data: formtVData(geoCoordMap, data, "珠海"),
+        data: formtVData(geoCoordMap, data, '珠海'),
       }
-    );
+    )
   }
 
   var option = {
     tooltip: {
-      trigger: "item",
+      trigger: 'item',
     },
     geo: {
-      map: "china",
+      map: 'china',
       label: {
         show: true,
-        position: "insideLeft",
-        color: "white",
-        fontSize: "10",
+        position: 'insideLeft',
+        color: 'white',
+        fontSize: '10',
         emphasis: {
           show: true,
         },
@@ -1911,53 +1894,48 @@ function chart4(data, type, chartType) {
       silent: true,
       itemStyle: {
         normal: {
-          areaColor: "transparent",
-          borderColor: "#0e94eb",
+          areaColor: 'transparent',
+          borderColor: '#0e94eb',
           shadowBlur: 10,
-          shadowColor: "#0e94ea",
+          shadowColor: '#0e94ea',
         },
       },
       left: 10,
       right: 10,
     },
     series: s_data,
-  };
-  if (chartType === "") {
-    $(".ranking-box").html(str);
-    myChart.setOption(option);
-    myCharts.setOption(option);
+  }
+  if (chartType === '') {
+    $('.ranking-box').html(str)
+    myChart.setOption(option)
+    myCharts.setOption(option)
   } else if (chartType === 0) {
-    $(".center-bottom .ranking-box").html(str);
-    myChart.setOption(option);
+    $('.center-bottom .ranking-box').html(str)
+    myChart.setOption(option)
   } else if (chartType === 1) {
-    $(".pop-data .ranking-box").html(str);
-    myCharts.setOption(option);
+    $('.pop-data .ranking-box').html(str)
+    myCharts.setOption(option)
   }
 }
 
-$(".close-pop").on("click", function () {
-  $(this)
-    .parent()
-    .parent()
-    .hide()
-    .find(".cont-div")
-    .attr("style", "visibility: hidden");
-});
+$('.close-pop').on('click', function () {
+  $(this).parent().parent().hide().find('.cont-div').attr('style', 'visibility: hidden')
+})
 
-$("#setBtn").on("click", function () {
-  $(".container")
-    .attr("style", "visibility: visible")
-    .find(".pop-up")
+$('#setBtn').on('click', function () {
+  $('.container')
+    .attr('style', 'visibility: visible')
+    .find('.pop-up')
     .eq(4)
-    .attr("style", "visibility: visible")
+    .attr('style', 'visibility: visible')
     .siblings()
-    .attr("style", "visibility: hidden");
-});
+    .attr('style', 'visibility: hidden')
+})
 
-var workDate;
+var workDate
 var time = {
-  elem: "#times",
-  format: "YYYY-MM-DD",
+  elem: '#times',
+  format: 'YYYY-MM-DD',
   min: laydate.now(),
   max: laydate.now() + 30,
   istime: true,
@@ -1965,50 +1943,50 @@ var time = {
   fixed: false,
   choose: function (datas) {
     //        startTime.max = datas; //结束日选好后，重置开始日的最大日期
-    workDate = datas;
+    workDate = datas
   },
-};
+}
 
-laydate(time);
+laydate(time)
 
-$("#addT").on("click", function () {
-  $("#mineusT").show();
-  if ($(this).siblings("input").length < 6) {
-    if ($(this).siblings("input").length == 5) {
-      $(this).hide();
+$('#addT').on('click', function () {
+  $('#mineusT').show()
+  if ($(this).siblings('input').length < 6) {
+    if ($(this).siblings('input').length == 5) {
+      $(this).hide()
     }
-    $(this).before('<input type="text" value="">');
+    $(this).before('<input type="text" value="">')
   }
-});
+})
 
-$("#mineusT").on("click", function () {
-  if ($(this).siblings("input").length > 1) {
-    if ($(this).siblings("input").length == 6) {
-      $("#addT").show();
-    } else if ($(this).siblings("input").length == 2) {
-      $(this).hide();
+$('#mineusT').on('click', function () {
+  if ($(this).siblings('input').length > 1) {
+    if ($(this).siblings('input').length == 6) {
+      $('#addT').show()
+    } else if ($(this).siblings('input').length == 2) {
+      $(this).hide()
     }
-    $(this).siblings("input:last").remove();
+    $(this).siblings('input:last').remove()
   }
-});
+})
 
-$("#addL").on("click", function () {
-  $("#mineusL").show();
-  if ($(this).siblings("input").length < 3) {
-    if ($(this).siblings("input").length == 2) {
-      $(this).hide();
+$('#addL').on('click', function () {
+  $('#mineusL').show()
+  if ($(this).siblings('input').length < 3) {
+    if ($(this).siblings('input').length == 2) {
+      $(this).hide()
     }
-    $(this).before('<input type="text" value="">');
+    $(this).before('<input type="text" value="">')
   }
-});
+})
 
-$("#mineusL").on("click", function () {
-  if ($(this).siblings("input").length > 1) {
-    if ($(this).siblings("input").length == 3) {
-      $("#addL").show();
-    } else if ($(this).siblings("input").length == 2) {
-      $(this).hide();
+$('#mineusL').on('click', function () {
+  if ($(this).siblings('input').length > 1) {
+    if ($(this).siblings('input').length == 3) {
+      $('#addL').show()
+    } else if ($(this).siblings('input').length == 2) {
+      $(this).hide()
     }
-    $(this).siblings("input:last").remove();
+    $(this).siblings('input:last').remove()
   }
-});
+})
